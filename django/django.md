@@ -4,10 +4,15 @@ Django note
 Most frequently used commands to interact with file and directory
 
 `cd` (change down a directory)
+
 `cd ..` (change up a directory)
+
 `ls` (list files in your current directory)
+
 `pwd` (print working directory)
+
 `mkdir` (make directory)
+
 `touch` (create a new file)
 
 
