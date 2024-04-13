@@ -3,33 +3,33 @@ Django note
 
 Most frequently used commands to interact with file and directory
 
-cd (change down a directory)
-cd .. (change up a directory)
-ls (list files in your current directory)
-pwd (print working directory)
-mkdir (make directory)
-touch (create a new file)
+`cd` (change down a directory)
+`cd ..` (change up a directory)
+`ls` (list files in your current directory)
+`pwd` (print working directory)
+`mkdir` (make directory)
+`touch` (create a new file)
 
 
 Set up 
 
 Install python
 
-Check python's version to make sure it is installed   =>   python --version 
+Check python's version to make sure it is installed   =>   `python --version` 
 
-Install pipenv from pip to work in virtual environment => pip install pipenv ***
+Install pipenv from pip to work in virtual environment => `pip install pipenv` ***
 
-Check pipenv's version => pipenv --version
+Check pipenv's version => `pipenv --version`
 
-Start a virtual environment with  pipenv shell . You will see project name in parentheses, like ( Project_name)
+Start a virtual environment with  `pipenv shell` . You will see project name in parentheses, like ( Project_name)
 
-Install django =>  pipenv install django
+Install django =>  `pipenv install django`
 
-Check django version => python -m django --version
+Check django version => `python -m django --version`
 
-Create a django project in the current directory . django-admin startproject project_name  .  <=  don't forget to add the dot after the project name it will create all necessary files in the current directory .
+Create a django project in the current directory . `django-admin startproject project_name  . ` <=  don't forget to add the dot after the project name it will create all necessary files in the current directory .
 
- Start server => python manage.py runserver
+ Start server => `python manage.py runserver`
 
 
 Server should start and show home page of django on http://127.0.0.1:8000/
@@ -95,6 +95,12 @@ INSTALLED_APPS = [
 ]
 
 
+*To create an app in django first create folder for that app and run the following command .
+$ python manage.py startapp course ./apps/course
+
+
+
+
 
 Let’s review what each new  app files do:
 
@@ -113,6 +119,7 @@ views.py is where we handle the request/response logic or business logic for our
 
 
 
+*At this point you can create superuser and login to django admin . If you want
 
 
 Creating models 
@@ -126,7 +133,24 @@ class Drink(models.Model):
   name = models.CharField(max_length=20)
   desc = models.CharField(max_length=20)
   
+ def __str__(self): 
+      return self.name
+
+# this __str__ function will show the object name django admin 
+
  
+
+*To see the database tables in django admin open the app's admin.py file and add the following code
+
+# Project/apps/course/admin.py
+from django.contrib import admin
+from .models import Course
+# Register your models here.
+
+admin.site.register(Course)
+
+
+
 
 
 After creating a model run make-migration command
@@ -242,7 +266,9 @@ import .models import Drink
 
 Views
     
-   Getting complex data from database, converting them to python's data type using serializer classes and converting this data to json then serving this json data to specific url  can be done here
+   Getting complex data from database, converting them to python's data type using serializer classes and converting this data to json then serving this json data to specific url  can be done here.
+
+The view function reads the path, query, and body parameters included in the client's request If required, it uses this data to interact with the models to perform CRUD operations.
 
 
 #drinks/views.py
@@ -463,4 +489,30 @@ Check wsl version
 
 $ wsl --list --verbose  or  
 $ wsl -l -v 
+
+
+
+*Note
+Filtering using query params
+The ordering_fields configuration in the Django Rest Framework settings specifically applies to views that inherit from ListAPIView or ModelViewSet. 
+
+
+
+
+Django resources :-
+
+
+Routing in DRF
+https://www.coursera.org/learn/apis/supplement/cFRCv/different-types-of-routing-in-drf
+
+
+Validation:
+https://www.coursera.org/learn/apis/supplement/ISsUx/importance-of-data-validation
+
+
+Serializer:
+https://www.django-rest-framework.org/api-guide/serializers/
+
+
+
 
