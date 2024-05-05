@@ -1,4 +1,4 @@
-Django note
+# Django note
 
 
 Most frequently used commands to interact with file and directory
@@ -16,28 +16,56 @@ Most frequently used commands to interact with file and directory
 `touch` (create a new file)
 
 
-Set up 
+## Set up 
 
-Install python
-
-Check python's version to make sure it is installed   =>   `python --version` 
-
-Install pipenv from pip to work in virtual environment => `pip install pipenv` ***
-
-Check pipenv's version => `pipenv --version`
-
-Start a virtual environment with  `pipenv shell` . You will see project name in parentheses, like ( Project_name)
-
-Install django =>  `pipenv install django`
-
-Check django version => `python -m django --version`
-
-Create a django project in the current directory . `django-admin startproject project_name  . ` <=  don't forget to add the dot after the project name it will create all necessary files in the current directory .
-
- Start server => `python manage.py runserver`
+##### Install python from here: https://www.python.org/downloads/
 
 
-Server should start and show home page of django on http://127.0.0.1:8000/
+##### Check python's version to make sure it is installed ==>
+```
+python --version
+```
+
+##### Install pipenv from pip to work in virtual environment ***
+```
+pip install pipenv
+``` 
+
+##### Check pipenv's version =>
+```
+pipenv --version
+```
+
+##### Start a virtual environment with  
+```
+pipenv shell
+```
+##### You will see project name in parentheses, like ( Project_name)
+
+
+##### Install django =>  
+```
+pipenv install django
+```
+
+##### Check django version => 
+```
+python -m django --version
+```
+
+##### Create a django project in the current directory 
+```
+django-admin startproject project_name  .
+```
+###### don't forget to add the dot after the project name it will create all necessary files in the current directory 
+
+##### Start server => 
+```
+python manage.py runserver
+``` 
+
+
+###### Server should start and show home page of django on http://127.0.0.1:8000/
 
 
 
@@ -45,9 +73,8 @@ Server should start and show home page of django on http://127.0.0.1:8000/
 
 
 
-***WARNING: The script virtualenv.exe is installed in 'C:\Users\user_name\AppData\Roaming\Python\Python310\Scripts' which is not on PATH.
-
-If you get this warning just copy the path url and paste it in Path variable of environment variable of your system  along with other values if Path has any . 
+###### ***WARNING: The script virtualenv.exe is installed in 'C:\Users\user_name\AppData\Roaming\Python\Python310\Scripts' which is not on PATH.
+###### ` If you get this warning just copy the path url and paste it in Path variable of environment variable of your system  along with other values if Path has any . `
 
 
 
@@ -75,7 +102,7 @@ $ pip install tzdata   *if you get timezone error
 
 ( Project_name ) $ pip freeze => to see all packages and its version
 
-$ pip freeze > requirements.txt  => to create a requirement.txt file
+$ pip freeze > requirements.txt  => to create a requirements.txt file
 
 
 
